@@ -34,4 +34,14 @@ class Product with ChangeNotifier {
   void toggleCartForTrue() {
     isCart = true;
   }
+
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+      id: json['id'],
+      title: json['id']['title'],
+      description: json['id']['description'],
+      imageUrl: json['id']['imageUrl'],
+      price: json['id']['price'],
+    );
+  }
 }

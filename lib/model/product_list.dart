@@ -7,10 +7,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 class ProductList with ChangeNotifier {
-  final _baseUrl = 'https://teste-db-d3d87-default-rtdb.firebaseio.com';
+  final _baseUrl =
+      'https://mobile-cb573-default-rtdb.firebaseio.com';
   //img https://st.depositphotos.com/1000459/2436/i/950/depositphotos_24366251-stock-photo-soccer-ball.jpg
 
-  List<Product> _items = dummyProducts;
+  List<Product> _items = [];
   bool _showFavoriteOnly = false;
 
   List<Product> get items {
@@ -91,5 +92,41 @@ class ProductList with ChangeNotifier {
       _items.removeWhere((p) => p.id == product.id);
       notifyListeners();
     }
+  }
+
+  getProducts() async {
+    return _items;
+  }
+
+  Future<List<Product>> fetchProducts() async {
+    final response = await http.get(Uri.parse('$_baseUrl/products.json'));
+    if (response.statusCode == 200) {
+      List<Product> list = [];
+      final map = jsonDecode(response.body);
+
+      map.forEach((k, v) {
+        list.add(Product(
+          id: k,
+          description: v['description'],
+          imageUrl: v['imageUrl'],
+          price: v['price'],
+          title: v['title'],
+        ));
+      });
+      _items = list;
+      return list;
+    } else {
+      throw Exception('Failed to load albums');
+    }
+  }
+
+  fromJson(Map<String, dynamic> json) {
+    return Product(
+      id: json['id'],
+      title: json['title'],
+      description: json['description'],
+      imageUrl: json['imageUrl'],
+      price: json['price'],
+    );
   }
 }
