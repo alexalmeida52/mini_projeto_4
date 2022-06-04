@@ -1,7 +1,10 @@
+import 'package:f6_ecommerce/model/lista_de_pedidos.dart';
 import 'package:f6_ecommerce/model/product.dart';
 import 'package:f6_ecommerce/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../model/lista_de_pedidos.dart';
 
 class ProductItem extends StatelessWidget {
   /*
@@ -20,6 +23,8 @@ class ProductItem extends StatelessWidget {
       context,
       listen: false,
     );
+
+    final listaDePedidos = Provider.of<ListaDePedidos>(context);
 
     //final product = context.watch<Product>();
 
@@ -61,8 +66,22 @@ class ProductItem extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           trailing: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.shopping_cart),
+              onPressed: () {
+                product.toggleCartForTrue();
+                listaDePedidos.adicionarPedido(product);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                      content: Text(
+                    '${listaDePedidos.getPedidoByProductId(product.id).qty} itens adicionados ao carrinho!',
+                    textAlign: TextAlign.center,
+                  )),
+                );
+              },
+              icon: Consumer<Product>(
+                builder: (context, product, child) => Icon(product.isCart
+                    ? Icons.shopping_cart
+                    : Icons.shopping_cart_outlined),
+              ),
               color: Theme.of(context).colorScheme.secondary),
         ),
       ),

@@ -120,26 +120,19 @@ class ShoppingCartItem extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(20),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Icon(Icons.star),
-                      SizedBox(
-                        width: 6,
-                      ),
-                      Text('Preço: ${_pedido.product.price}')
+                      Text('Preço: R\$ ${_pedido.product.price}'),
+                      Text('Quantidade: ${_pedido.qty}'),
                     ],
                   ),
-                  Row(
-                    children: <Widget>[
-                      Icon(Icons.attach_money),
-                      SizedBox(
-                        width: 6,
-                      ),
-                      Text('Total: R\$${_pedido.getPriceProductsRequest()}')
-                    ],
-                  ),
+                  Text('Total: R\$ ${_pedido.getPriceProductsRequest()}')
                 ],
               ),
             )

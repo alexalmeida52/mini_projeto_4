@@ -1,7 +1,9 @@
 import 'package:f6_ecommerce/components/shopping_cart_list.dart';
+import 'package:f6_ecommerce/model/lista_de_pedidos.dart';
 import 'package:f6_ecommerce/model/pedido.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ShoppingCartPage extends StatefulWidget {
   const ShoppingCartPage({Key? key}) : super(key: key);
@@ -13,12 +15,19 @@ class ShoppingCartPage extends StatefulWidget {
 class _ShoppingCartPageState extends State<ShoppingCartPage> {
   @override
   Widget build(BuildContext context) {
+    final listaDePedidos = Provider.of<ListaDePedidos>(context).getPedidos();
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Meu carrinho'),
       ),
-      body: Column(children: [
-        Flexible(child: ShoppingCartList()),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+        if (listaDePedidos.length > 0)
+          Flexible(child: ShoppingCartList())
+        else
+          Text('Não há nada aqui'),
         Container(
           alignment: Alignment.center,
           width: MediaQuery.of(context).size.width,
@@ -36,11 +45,14 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                 softWrap: true, //quebra de lina
                 overflow: TextOverflow.fade, //case de overflow
               ),
-              Text("R\$500,99",
-                style: TextStyle(fontSize: 26, color: Colors.white),
-                softWrap: true, //quebra de lina
-                overflow: TextOverflow.fade, //case de overflow
-              )
+              Consumer<ListaDePedidos>(builder: (context, pedidos, child) {
+                return Text(
+                  'R\$${pedidos.getAmountPrice().toStringAsFixed(2)}',
+                  style: TextStyle(fontSize: 26, color: Colors.white),
+                  softWrap: true, //quebra de lina
+                  overflow: TextOverflow.fade, //case de overflow
+                );
+              })
             ],
           ),
         ),

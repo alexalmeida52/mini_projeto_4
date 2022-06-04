@@ -1,3 +1,4 @@
+import 'package:f6_ecommerce/model/lista_de_pedidos.dart';
 import 'package:f6_ecommerce/model/product_list.dart';
 import 'package:f6_ecommerce/pages/product_detail_page.dart';
 import 'package:f6_ecommerce/pages/product_form_page.dart';
@@ -17,8 +18,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => ProductList(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ListaDePedidos>(
+          create: (_) => ListaDePedidos(),
+        ),
+        ChangeNotifierProvider<ProductList>(
+          create: (_) => ProductList(),
+        ),
+      ],
       child: MaterialApp(
         title: 'Minha Loja',
         theme: ThemeData(
