@@ -7,6 +7,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../utils/app_routes.dart';
+
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
@@ -22,6 +24,15 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Configurações'),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                  AppRoutes.PRODUCT_FORM,
+                );
+              },
+              icon: Icon(Icons.add)),
+        ],
       ),
       body:  Column(
         children: [
