@@ -27,7 +27,8 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
         if (listaDePedidos.length > 0)
           Flexible(child: ShoppingCartList())
         else
-          Text('Não há nada aqui'),
+          Center(child: Text('Não há nada aqui')),
+        if (listaDePedidos.length > 0)
         Container(
           alignment: Alignment.center,
           width: MediaQuery.of(context).size.width,
