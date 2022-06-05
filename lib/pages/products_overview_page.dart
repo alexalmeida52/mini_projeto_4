@@ -70,6 +70,15 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
         ],
       ),
       body: ProductGrid(_showOnlyFavorites),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed(
+            AppRoutes.SETTINGS,
+          );
+        },
+        backgroundColor: Colors.pink,
+        child: Icon(Icons.settings),
+      ),
     );
   }
 }

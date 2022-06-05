@@ -7,8 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 class ProductList with ChangeNotifier {
-  final _baseUrl =
-      'https://mobile-cb573-default-rtdb.firebaseio.com';
+  final _baseUrl = 'https://mobile-cb573-default-rtdb.firebaseio.com';
   //img https://st.depositphotos.com/1000459/2436/i/950/depositphotos_24366251-stock-photo-soccer-ball.jpg
 
   List<Product> _items = [];
@@ -75,12 +74,26 @@ class ProductList with ChangeNotifier {
     }
   }
 
-  Future<void> updateProduct(Product product) {
-    int index = _items.indexWhere((p) => p.id == product.id);
+  Future<void> updateProduct(Product product) async {
+    print('Atualizando o produto: ${product.id}');
+    final response =
+      await http.put(Uri.parse('$_baseUrl/products/${product.id}.json'), 
+        body: jsonEncode({
+          "title": product.title,
+          "description": product.description,
+          "price": product.price,
+          "imageUrl": product.imageUrl,
+          "isFavorite": product.isFavorite,
+        })
+      );
 
-    if (index >= 0) {
-      _items[index] = product;
-      notifyListeners();
+    if (response.statusCode == 200) {
+      int index = _items.indexWhere((p) => p.id == product.id);
+
+      if (index >= 0) {
+        _items[index] = product;
+        notifyListeners();
+      }
     }
     return Future.value();
   }
@@ -94,7 +107,7 @@ class ProductList with ChangeNotifier {
     }
   }
 
-  getProducts() async {
+  List<Product> getProducts() {
     return _items;
   }
 
@@ -128,5 +141,15 @@ class ProductList with ChangeNotifier {
       imageUrl: json['imageUrl'],
       price: json['price'],
     );
+  }
+
+  Future remove_product(String id, int index) async {
+    final response =
+        await http.delete(Uri.parse('$_baseUrl/products/$id.json'));
+    if (response.statusCode == 200) {
+      _items.removeAt(index);
+      notifyListeners();
+    }
+    return Future.value();
   }
 }

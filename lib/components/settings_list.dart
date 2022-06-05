@@ -1,3 +1,4 @@
+import 'package:f6_ecommerce/components/settings_item.dart';
 import 'package:f6_ecommerce/components/shopping_cart_item.dart';
 import 'package:f6_ecommerce/data/dummy_data.dart';
 import 'package:f6_ecommerce/model/lista_de_pedidos.dart';
@@ -9,22 +10,22 @@ import 'package:provider/provider.dart';
 
 import '../model/product_list.dart';
 
-class ShoppingCartList extends StatefulWidget {
+class SettingsList extends StatefulWidget {
   @override
-  State<ShoppingCartList> createState() => _ShoppingCartListState();
+  State<SettingsList> createState() => _SettingsListState();
 }
 
-class _ShoppingCartListState extends State<ShoppingCartList> {
+class _SettingsListState extends State<SettingsList> {
 
   @override
   Widget build(BuildContext context) {
     
-    return Consumer<ListaDePedidos>(builder: (context, pedidos, child) {
+    return Consumer<ProductList>(builder: (context, produtos, child) {
       return ListView.separated(
               shrinkWrap: true,
-              itemCount: pedidos.getPedidos().length,
+              itemCount: produtos.getProducts().length,
               itemBuilder: (context, index) {
-                return ShoppingCartItem(pedidos.getPedidos()[index]);
+                return SettingItem(produtos.getProducts()[index], index);
               },
               padding: const EdgeInsets.all(8),
               separatorBuilder: (BuildContext context, int index) {

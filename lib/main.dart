@@ -3,6 +3,7 @@ import 'package:f6_ecommerce/model/product_list.dart';
 import 'package:f6_ecommerce/pages/product_detail_page.dart';
 import 'package:f6_ecommerce/pages/product_form_page.dart';
 import 'package:f6_ecommerce/pages/products_overview_page.dart';
+import 'package:f6_ecommerce/pages/settings.dart';
 import 'package:f6_ecommerce/pages/shopping_cart_page.dart';
 import 'package:f6_ecommerce/utils/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
           AppRoutes.PRODUCT_DETAIL: (ctx) => ProductDetailPage(),
           AppRoutes.PRODUCT_FORM: (context) => ProductFormPage(),
           AppRoutes.SHOPPING_CART: (context) => ShoppingCartPage(),
+          AppRoutes.SETTINGS: (context) => SettingsPage(),
         },
         debugShowCheckedModeBanner: false,
       ),
