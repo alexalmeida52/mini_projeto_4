@@ -1,4 +1,4 @@
-import 'package:f6_ecommerce/model/pedido.dart';
+import 'package:mini_projeto_4/model/pedido.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

@@ -1,5 +1,5 @@
-import 'package:f6_ecommerce/model/pedido.dart';
-import 'package:f6_ecommerce/model/product.dart';
+import 'package:mini_projeto_4/model/pedido.dart';
+import 'package:mini_projeto_4/model/product.dart';
 import 'package:flutter/cupertino.dart';
 
 class ListaDePedidos with ChangeNotifier {

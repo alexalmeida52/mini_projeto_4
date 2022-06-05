@@ -1,5 +1,5 @@
-import 'package:f6_ecommerce/model/product.dart';
-import 'package:f6_ecommerce/model/product_list.dart';
+import 'package:mini_projeto_4/model/product.dart';
+import 'package:mini_projeto_4/model/product_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

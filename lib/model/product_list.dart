@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:f6_ecommerce/data/dummy_data.dart';
-import 'package:f6_ecommerce/model/product.dart';
+import 'package:mini_projeto_4/data/dummy_data.dart';
+import 'package:mini_projeto_4/model/product.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 

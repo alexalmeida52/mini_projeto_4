@@ -1,6 +1,6 @@
-import 'package:f6_ecommerce/model/lista_de_pedidos.dart';
-import 'package:f6_ecommerce/model/product.dart';
-import 'package:f6_ecommerce/utils/app_routes.dart';
+import 'package:mini_projeto_4/model/lista_de_pedidos.dart';
+import 'package:mini_projeto_4/model/product.dart';
+import 'package:mini_projeto_4/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

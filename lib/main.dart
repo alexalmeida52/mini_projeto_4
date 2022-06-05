@@ -1,11 +1,11 @@
-import 'package:f6_ecommerce/model/lista_de_pedidos.dart';
-import 'package:f6_ecommerce/model/product_list.dart';
-import 'package:f6_ecommerce/pages/product_detail_page.dart';
-import 'package:f6_ecommerce/pages/product_form_page.dart';
-import 'package:f6_ecommerce/pages/products_overview_page.dart';
-import 'package:f6_ecommerce/pages/settings.dart';
-import 'package:f6_ecommerce/pages/shopping_cart_page.dart';
-import 'package:f6_ecommerce/utils/app_routes.dart';
+import 'package:mini_projeto_4/model/lista_de_pedidos.dart';
+import 'package:mini_projeto_4/model/product_list.dart';
+import 'package:mini_projeto_4/pages/product_detail_page.dart';
+import 'package:mini_projeto_4/pages/product_form_page.dart';
+import 'package:mini_projeto_4/pages/products_overview_page.dart';
+import 'package:mini_projeto_4/pages/settings.dart';
+import 'package:mini_projeto_4/pages/shopping_cart_page.dart';
+import 'package:mini_projeto_4/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

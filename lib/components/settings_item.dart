@@ -1,8 +1,8 @@
-import 'package:f6_ecommerce/model/pedido.dart';
-import 'package:f6_ecommerce/model/product.dart';
-import 'package:f6_ecommerce/model/product_list.dart';
-import 'package:f6_ecommerce/pages/product_form_page.dart';
-import 'package:f6_ecommerce/pages/settings_form_page.dart';
+import 'package:mini_projeto_4/model/pedido.dart';
+import 'package:mini_projeto_4/model/product.dart';
+import 'package:mini_projeto_4/model/product_list.dart';
+import 'package:mini_projeto_4/pages/product_form_page.dart';
+import 'package:mini_projeto_4/pages/settings_form_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

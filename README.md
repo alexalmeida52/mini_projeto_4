@@ -1,4 +1,4 @@
-# f6_ecommerce
+# mini_projeto_4
 ## José Alex Alves Pereira
 
 A new Flutter project.

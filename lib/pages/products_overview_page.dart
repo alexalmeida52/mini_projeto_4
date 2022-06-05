@@ -1,9 +1,9 @@
-import 'package:f6_ecommerce/components/product_grid.dart';
-import 'package:f6_ecommerce/components/product_item.dart';
-import 'package:f6_ecommerce/data/dummy_data.dart';
-import 'package:f6_ecommerce/model/product.dart';
-import 'package:f6_ecommerce/model/product_list.dart';
-import 'package:f6_ecommerce/utils/app_routes.dart';
+import 'package:mini_projeto_4/components/product_grid.dart';
+import 'package:mini_projeto_4/components/product_item.dart';
+import 'package:mini_projeto_4/data/dummy_data.dart';
+import 'package:mini_projeto_4/model/product.dart';
+import 'package:mini_projeto_4/model/product_list.dart';
+import 'package:mini_projeto_4/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

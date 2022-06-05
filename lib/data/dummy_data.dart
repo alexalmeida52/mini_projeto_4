@@ -1,4 +1,4 @@
-import 'package:f6_ecommerce/model/product.dart';
+import 'package:mini_projeto_4/model/product.dart';
 
 final dummyProducts = [
   Product(
